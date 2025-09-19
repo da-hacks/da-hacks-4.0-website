@@ -49,10 +49,10 @@ function Intro() {
 
         <div className="pt-8">
           <a
-            href="https://luma.com/event/evt-Ck32wLyGl2ftGFf"
+            href="https://luma.com/4ugdc5mt"
             className="p-4 border-2 border-white text-white outline-none backdrop-blur-xl hover:bg-white hover:text-black transition-colors shadow-lg"
-            data-luma-action="checkout"
-            data-luma-event-id="evt-Ck32wLyGl2ftGFf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Apply Here
           </a>
