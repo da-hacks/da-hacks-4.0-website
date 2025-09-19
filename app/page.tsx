@@ -2,10 +2,12 @@
 
 import localFont from "next/font/local";
 import { Press_Start_2P } from "next/font/google";
-
+import Script from "next/script";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+import { LenisRef, ReactLenis } from 'lenis/react';
 
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const superMario = localFont({ src: "../public/supermario.ttf" });
 const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
@@ -63,7 +65,14 @@ function Intro() {
 
       {/* Grass */}
       <div>
-        <img src="/touchgrass.png" alt="Grass (you should probably touch it)" className="w-full" />
+        <Image
+          src="/touchgrass.png"
+          alt="Grass (you should probably touch it)"
+          className="w-full"
+          width={6760}
+          height={3309}
+          priority
+        />
       </div>
     </CardContainer>
   );
@@ -132,7 +141,7 @@ function FAQ() {
               openIndex === i ? "max-h-screen" : "max-h-0"
             }`}
           >
-            <div className={`p-5 pt-0 text-gray-700`}>{q.answer}</div>
+            <div className="p-5 pt-0 text-gray-700 text-sm">{q.answer}</div>
           </div>
         </div>
       ))}
@@ -141,15 +150,34 @@ function FAQ() {
 }
 
 export default function Page() {
+  const lenisRef = useRef<LenisRef | null>(null);
+  
+  useEffect(() => {
+    function update(time: number) {
+      lenisRef.current?.lenis?.raf(time);
+    }
+    
+    const rafId = requestAnimationFrame(update);
+    
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
   return (
-    <div className={`${pressStart2P.className} bg-[#F2A7A0] w-screen h-dvh overflow-y-auto flex flex-col items-center gap-10`}>
-      <Intro />
-      <Video />
-      <FAQ />
+    <>
+      <ReactLenis
+        root
+        ref={lenisRef}
+        options={{ duration: 2 }}
+      />
+      <div className={`${pressStart2P.className} bg-[#F2A7A0] w-full h-full flex flex-col items-center gap-y-10`}>
+        <Intro />
+        <Video />
+        <FAQ />
 
-      <div></div>
+        <div></div>
 
-      <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" />
-    </div>
+        <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" />
+      </div>
+    </>
   );
 }
