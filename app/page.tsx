@@ -174,7 +174,7 @@ export default function Page() {
     <>
       <ReactLenis root ref={lenisRef} options={{ duration: 2 }} />
       <div
-        className={`${pressStart2P.className} bg-[#F2A7A0] w-full h-full flex flex-col items-center gap-y-10`}
+        className={`${pressStart2P.className} bg-[#3DB0E7] w-full h-full flex flex-col items-center gap-y-10`}
       >
         <Intro />
         <Video />
