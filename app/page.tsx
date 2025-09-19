@@ -14,7 +14,7 @@ const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 
 function CardContainer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-[#3DB0E7] bg-cover flex flex-col shadow-lg justify-between max-w-4xl">
+    <div className="bg-[#3DB0E7] flex flex-col shadow-lg justify-between max-w-6xl">
       {children}
     </div>
   );
@@ -22,7 +22,7 @@ function CardContainer({ children }: { children: React.ReactNode }) {
 
 function Intro() {
   return (
-    <CardContainer>
+    <div className="bg-[url('/pixelthingy.png')] bg-cover flex flex-col shadow-lg justify-between">
 
       {/* Dummy div */}
       <div></div>
@@ -74,7 +74,7 @@ function Intro() {
           priority
         />
       </div>
-    </CardContainer>
+    </div>
   );
 }
 
