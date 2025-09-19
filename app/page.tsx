@@ -23,10 +23,6 @@ function CardContainer({ children }: { children: React.ReactNode }) {
 function Intro() {
   return (
     <div className="bg-[url('/pixelthingy.png')] bg-cover flex flex-col shadow-lg justify-between">
-
-      {/* Dummy div */}
-      <div></div>
-
       {/* Text + button */}
       <div className="text-center lg:mx-7">
         <h1 className={`${superMario.className} text-6xl md:text-7xl lg:text-8xl mb-6 tracking-tight outlined-text text-shadow-lg pt-10`}>
