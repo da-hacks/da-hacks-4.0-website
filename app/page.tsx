@@ -166,7 +166,7 @@ function FAQ() {
 function Footer() {
   return (
     <div className="mb-15 rounded-2xl p-7">
-      <h1 className="text-center text-2xl md:text-4xl tracking-tight pb-6 text-gray-900">It's time to hack.</h1>
+      <h1 className="text-center text-2xl md:text-4xl tracking-tight pb-6 text-gray-900">It&rsquo;s time to hack.</h1>
       <div className="text-center"><ApplyButton /></div>
     </div>
   );
