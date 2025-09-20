@@ -6,7 +6,7 @@ import localFont from "next/font/local";
 import Image from "next/image";
 import Script from "next/script";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const superMario = localFont({ src: "../public/supermario.ttf" });
 const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
@@ -61,7 +61,7 @@ function HackersGuideButton() {
 
 function Intro() {
   return (
-    <div className="w-full bg-[url('https://raw.githubusercontent.com/da-hacks/da-hacks-4.0-website/refs/heads/main/public/pixelthingy.png')] bg-cover bg-center">
+    <div className="w-full">
       <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-35 pb-6 sm:pb-10 flex flex-col items-center justify-between">
         {/* Text + button */}
         <div className="text-center">
@@ -248,19 +248,33 @@ function Footer() {
 }
 
 export default function Page() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div
-      className={`${pressStart2P.className} bg-[#3DB0E7] w-full h-full flex flex-col items-center gap-y-10`}
+      className={`${pressStart2P.className} bg-[#3DB0E7] w-full h-full flex flex-col relative`}
     >
-      <Intro />
-      <Video />
-      <FAQ />
-
-      <Script
-        id="luma-checkout"
-        src="https://embed.lu.ma/checkout-button.js"
+      {/* Parallax Background */}
+      <div 
+        className="fixed inset-0 w-full h-full bg-[url('https://raw.githubusercontent.com/da-hacks/da-hacks-4.0-website/refs/heads/main/public/pixelthingy.png')] bg-center bg-cover"
+        style={{
+          transform: `translateY(${scrollY * 0.3}px)`,
+          willChange: 'transform'
+        }}
       />
-      <Footer />
+      
+      <div className="z-10 flex flex-col items-center gap-y-10">
+        <Intro />
+        <Video />
+        <FAQ />
+        <Footer />
+      </div> 
     </div>
   );
 }
