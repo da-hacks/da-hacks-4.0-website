@@ -36,6 +36,7 @@ function Intro() {
             <span className="text-[#E153E7]">c</span>
             <span className="text-[#4272F0]">k</span>
             <span className="text-[#F08CC1]">s</span>
+            {" "}
             <span className="text-[#4272F0]">4</span>
             <span className="text-[#988AFF]">.</span>
             <span className="text-[#D05CB6]">0</span>
