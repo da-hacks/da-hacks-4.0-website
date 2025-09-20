@@ -145,7 +145,7 @@ function FAQ() {
       question: "When and where?",
       answer:
         <>
-          <p>Nov 21 - 22, 8 AM - 8:30 PM</p>
+          <p>Nov 21 - 22, 8 AM - 8:30 PM (both days)</p>
           <p>Campus Center - Conference Room A & B</p>
           <p>A schedule will be posted before the event.</p>
         </>,
