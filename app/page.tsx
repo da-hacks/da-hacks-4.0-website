@@ -1,13 +1,12 @@
 "use client";
 
-import { LenisRef, ReactLenis } from "lenis/react";
 import { ChevronDown } from "lucide-react";
 import { Press_Start_2P } from "next/font/google";
 import localFont from "next/font/local";
 import Image from "next/image";
 import Script from "next/script";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const superMario = localFont({ src: "../public/supermario.ttf" });
 const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
@@ -159,35 +158,20 @@ function FAQ() {
 }
 
 export default function Page() {
-  const lenisRef = useRef<LenisRef | null>(null);
-
-  useEffect(() => {
-    function update(time: number) {
-      lenisRef.current?.lenis?.raf(time);
-    }
-
-    const rafId = requestAnimationFrame(update);
-
-    return () => cancelAnimationFrame(rafId);
-  }, []);
-
   return (
-    <>
-      <ReactLenis root ref={lenisRef} options={{ duration: 2 }} />
-      <div
-        className={`${pressStart2P.className} bg-[#3DB0E7] w-full h-full flex flex-col items-center gap-y-10`}
-      >
-        <Intro />
-        <Video />
-        <FAQ />
+    <div
+      className={`${pressStart2P.className} bg-[#3DB0E7] w-full h-full flex flex-col items-center gap-y-10`}
+    >
+      <Intro />
+      <Video />
+      <FAQ />
 
-        <div></div>
+      <div></div>
 
-        <Script
-          id="luma-checkout"
-          src="https://embed.lu.ma/checkout-button.js"
-        />
-      </div>
-    </>
+      <Script
+        id="luma-checkout"
+        src="https://embed.lu.ma/checkout-button.js"
+      />
+    </div>
   );
 }
