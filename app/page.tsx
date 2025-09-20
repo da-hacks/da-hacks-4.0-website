@@ -54,7 +54,7 @@ function HackersGuideButton() {
       target="_blank"
       rel="noopener noreferrer"
     >
-      Hacker's Guide
+      Hackers&rsquo; Guide
     </a>
   );
 }
