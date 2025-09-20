@@ -146,7 +146,7 @@ function FAQ() {
       answer:
         <>
           <p>Nov 21 - 22, 8 AM - 8:30 PM (both days)</p>
-          <p>Campus Center - Conference Room A & B</p>
+          <p className="mb-3">Campus Center - Conference Room A & B</p>
           <p>A schedule will be posted before the event.</p>
         </>,
     },
@@ -167,7 +167,7 @@ function FAQ() {
     },
     {
       question: "What if I don't have a team?",
-      answer: <>You can apply individually or find a team in our Discord!</>,
+      answer: <>You can find a team in our <a href="https://discord.gg/46fcBdqTB8" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">Discord</a>, or apply individually.</>,
     },
   ];
 
@@ -192,7 +192,7 @@ function FAQ() {
             onClick={() => handleToggle(i)}
             className="w-full flex justify-between items-center p-5 text-left focus:outline-none cursor-pointer text-gray-800"
           >
-            <span className="md:text-lg">{q.question}</span>
+            <span className="text-sm md:text-lg">{q.question}</span>
             {/* The arrow icon will rotate smoothly based on the open/closed state */}
             <span
               className={`transform transition-transform ${
@@ -209,7 +209,7 @@ function FAQ() {
               openIndex === i ? "max-h-screen" : "max-h-0"
             }`}
           >
-            <div className="p-5 pt-0 text-gray-700 text-lg">{q.answer}</div>
+            <div className="p-5 pt-0 text-gray-700 md:text-lg">{q.answer}</div>
           </div>
         </div>
       ))}
