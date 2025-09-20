@@ -141,7 +141,7 @@ function FAQ() {
             <span className="md:text-lg">{q.question}</span>
             {/* The arrow icon will rotate smoothly based on the open/closed state */}
             <span
-              className={`transform transition-transform duration-300 ${
+              className={`transform transition-transform ${
                 openIndex === i ? "rotate-180" : ""
               }`}
             >
@@ -151,7 +151,7 @@ function FAQ() {
 
           {/* This div contains the answer. It expands and collapses smoothly. */}
           <div
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+            className={`overflow-hidden transition-all ease-in-out ${
               openIndex === i ? "max-h-screen" : "max-h-0"
             }`}
           >
