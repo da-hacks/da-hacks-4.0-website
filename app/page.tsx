@@ -14,7 +14,7 @@ const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 
 function CardContainer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-[#3DB0E7] flex flex-col  justify-between max-w-6xl w-full rounded-2xl overflow-hidden mx-4 sm:mx-6 p-4 sm:p-6">
+    <div className="flex flex-col justify-between max-w-6xl w-full rounded-2xl overflow-hidden mx-4 sm:mx-6 p-4 sm:p-6">
       {children}
     </div>
   );
