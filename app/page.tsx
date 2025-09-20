@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import { Press_Start_2P } from "next/font/google";
+import { Geist, Press_Start_2P } from "next/font/google";
 import localFont from "next/font/local";
 import Image from "next/image";
 import Script from "next/script";
@@ -10,6 +10,7 @@ import { useState } from "react";
 
 const superMario = localFont({ src: "../public/supermario.ttf" });
 const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
+const geist = Geist({ weight: "400", subsets: ["latin"] });
 
 function CardContainer({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
@@ -28,6 +29,32 @@ function ApplyButton() {
       rel="noopener noreferrer"
     >
       Apply Here
+    </a>
+  );
+}
+
+function DiscordButton() {
+  return (
+    <a
+      href="https://discord.gg/46fcBdqTB8"
+      className="inline-block px-4 py-2 text-xs sm:text-sm border-2 border-[#5865F2] text-white bg-[#5865F2] outline-none hover:bg-white hover:text-[#5865F2] transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Discord
+    </a>
+  );
+}
+
+function HackersGuideButton() {
+  return (
+    <a
+      href="/hackers-guide"
+      className="inline-block px-4 py-2 text-xs sm:text-sm border-2 border-[#10B981] text-white bg-[#10B981] outline-none hover:bg-white hover:text-[#10B981] transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Hacker's Guide
     </a>
   );
 }
@@ -62,8 +89,12 @@ function Intro() {
             Join Cupertino&rsquo;s biggest collegiate hackathon!
           </div>
 
-          <div className="pt-8">
+          <div className="pt-8 flex flex-col items-center justify-center gap-4">
             <ApplyButton />
+            <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
+              <DiscordButton />
+              {/* <HackersGuideButton /> TODO: Add this back in until we deploy the guide */}
+            </div>
           </div>
         </div>
 
@@ -105,15 +136,38 @@ function FAQ() {
     {
       question: "What is a hackathon?",
       answer:
-        "A hackathon is an event where people come together to create something new and innovative.",
+        <>
+          <p className="mb-3">A hackathon is an event where people come together over a short period of time, to collaborate intensively on software or hardware projects.</p>
+          <p>Participants form teams, brainstorm ideas, and build prototypes or solutions from scratch. No prior experience is required. Just bring your enthusiasm and willingness to learn!</p>
+        </>,
     },
     {
-      question: "What is the best part of hacking?",
-      answer: "The friends we make along the way. :)",
+      question: "When and where?",
+      answer:
+        <>
+          <p>Nov 21 - 22, 8 AM - 8:30 PM</p>
+          <p>Campus Center - Conference Room A & B</p>
+          <p>A schedule will be posted before the event.</p>
+        </>,
+    },
+    /*
+    TODO: Add this back in when we deploy the guide
+    {
+      question: "What should I bring?",
+      answer: <>Check out our Hacker's Guide!</>,
+    },
+    */
+    {
+      question: "How do I join?",
+      answer: <>Fill out the <a href="https://luma.com/4ugdc5mt" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">registration form</a>!</>,
     },
     {
-      question: "Why should I attend future DAHacks events?",
-      answer: "For the learning, the community, and the amazing projects!",
+      question: "Are there going to be prizes?",
+      answer: <>Yes! Top 3 will get prizes, and free merch will be given out to attendees.</>,
+    },
+    {
+      question: "What if I don't have a team?",
+      answer: <>You can apply individually or find a team in our Discord!</>,
     },
   ];
 
@@ -151,11 +205,11 @@ function FAQ() {
 
           {/* This div contains the answer. It expands and collapses smoothly. */}
           <div
-            className={`overflow-hidden transition-all ease-in-out ${
+            className={`overflow-hidden transition-all ease-in-out ${geist.className} ${
               openIndex === i ? "max-h-screen" : "max-h-0"
             }`}
           >
-            <div className="p-5 pt-0 text-gray-700 text-sm">{q.answer}</div>
+            <div className="p-5 pt-0 text-gray-700 text-lg">{q.answer}</div>
           </div>
         </div>
       ))}
@@ -166,7 +220,28 @@ function FAQ() {
 function Footer() {
   return (
     <div className="mb-15 rounded-2xl p-7">
-      <h1 className="text-center text-2xl md:text-4xl tracking-tight pb-6 text-gray-900">It&rsquo;s time to hack.</h1>
+      <h1
+        className={`${superMario.className} text-center text-4xl sm:text-7xl tracking-tight pb-9 outlined-text text-shadow-lg`}
+      >
+        <span className="text-[#F08CC1]">I</span>
+        <span className="text-[#E153E7]">t</span>
+        <span className="text-[#4272F0]">&rsquo;</span>
+        <span className="text-[#F08CC1]">s</span>
+        {" "}
+        <span className="text-[#E153E7]">t</span>
+        <span className="text-[#4272F0]">i</span>
+        <span className="text-[#F08CC1]">m</span>
+        <span className="text-[#E153E7]">e</span>
+        {" "}
+        <span className="text-[#4272F0]">t</span>
+        <span className="text-[#F08CC1]">o</span>
+        {" "}
+        <span className="text-[#E153E7]">h</span>
+        <span className="text-[#4272F0]">a</span>
+        <span className="text-[#F08CC1]">c</span>
+        <span className="text-[#E153E7]">k</span>
+        <span className="text-[#4272F0]">.</span>
+      </h1>
       <div className="text-center"><ApplyButton /></div>
     </div>
   );
