@@ -96,19 +96,8 @@ function Video() {
 
 function FAQ() {
   const questions = [
-    {
-      question: "What is a hackathon?",
-      answer:
-        "A hackathon is an event where people come together to create something new and innovative.",
-    },
-    {
-      question: "What is the best part of hacking?",
-      answer: "The friends we make along the way. :)",
-    },
-    {
-      question: "Why should I attend future DAHacks events?",
-      answer: "For the learning, the community, and the amazing projects!",
-    },
+    { question: "What is a hackathon?", answer: "A hackathon is an event where people come together to create something new and innovative." },
+    { question: "What is the best part of hacking?", answer: "EASTER_EGG_ANSWER" },
   ];
 
   // State to track the index of the currently open question. 'null' means all are closed.
@@ -149,7 +138,11 @@ function FAQ() {
               openIndex === i ? "max-h-screen" : "max-h-0"
             }`}
           >
-            <div className="p-5 pt-0 text-gray-700 text-sm">{q.answer}</div>
+            <div className="p-5 pt-0 text-gray-700 text-sm">{
+              q.answer === "EASTER_EGG_ANSWER" ? 
+                <>The friends we make along the way! Oh and also, <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank' rel='noopener noreferrer' className='text-blue-800 underline'>summoning Rick Astley</a>.</> :
+                q.answer
+            }</div>
           </div>
         </div>
       ))}
