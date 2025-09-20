@@ -61,7 +61,7 @@ function HackersGuideButton() {
 
 function Intro() {
   return (
-    <div className="w-full bg-[url('/pixelthingy.png')] bg-cover bg-center">
+    <div className="w-full bg-[url('https://raw.githubusercontent.com/da-hacks/da-hacks-4.0-website/refs/heads/main/public/pixelthingy.png')] bg-cover bg-center">
       <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-35 pb-6 sm:pb-10 flex flex-col items-center justify-between">
         {/* Text + button */}
         <div className="text-center">
@@ -101,7 +101,7 @@ function Intro() {
         {/* Grass */}
         <div>
           <Image
-            src="/touchgrass.png"
+            src="https://raw.githubusercontent.com/da-hacks/da-hacks-4.0-website/refs/heads/main/public/touchgrass.png"
             alt="Grass (you should probably touch it)"
             className="w-full"
             width={6760}
