@@ -38,3 +38,39 @@ body {
       0px 5px 0px #000;
   }
 }
+
+.countdown-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-value {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+@media (max-width: 640px) {
+  .countdown-value {
+    font-size: 2rem;
+  }
+  
+  .countdown-label {
+    font-size: 0.75rem;
+  }
+}

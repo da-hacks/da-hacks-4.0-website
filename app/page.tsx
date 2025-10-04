@@ -12,6 +12,9 @@ const superMario = localFont({ src: "../public/supermario.ttf" });
 const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 const geist = Geist({ weight: "400", subsets: ["latin"] });
 
+// Hackathon end time: November 22, 2025 at 8:30 PM PST
+const hackathonEndTime = "2025-11-22T20:30:00-08:00";
+
 function CardContainer({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={`flex flex-col justify-between bg-sky-300 max-w-6xl w-full rounded-2xl overflow-hidden mx-4 sm:mx-6 p-4 sm:p-6 ${className}`}>
@@ -146,7 +149,7 @@ function FAQ() {
       question: "When and where?",
       answer:
         <>
-          <p>Nov 21 - 22, 8 AM - 8:30 PM (both days)</p>
+          <p>Nov 21 - 22, 8 AM (Nov 21) - 8:30 PM (Nov 22)</p>
           <p className="mb-3">Campus Center - Conference Room A & B</p>
           <p>A schedule will be posted before the event.</p>
         </>,
