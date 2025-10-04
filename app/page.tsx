@@ -4,7 +4,6 @@ import { ChevronDown } from "lucide-react";
 import { Geist, Press_Start_2P } from "next/font/google";
 import localFont from "next/font/local";
 import Image from "next/image";
-import Script from "next/script";
 
 import { useState, useEffect } from "react";
 
@@ -12,9 +11,9 @@ const superMario = localFont({ src: "../public/supermario.ttf" });
 const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 const geist = Geist({ weight: "400", subsets: ["latin"] });
 
-function CardContainer({ children, className }: { children: React.ReactNode; className?: string }) {
+function CardContainer({ children, className, showEasterEgg }: { children: React.ReactNode; className?: string; showEasterEgg?: boolean }) {
   return (
-    <div className={`flex flex-col justify-between bg-sky-300 max-w-6xl w-full rounded-2xl overflow-hidden mx-4 sm:mx-6 p-4 sm:p-6 ${className}`}>
+    <div className={`flex flex-col justify-between ${showEasterEgg ? "animate-disco" : "bg-sky-300"} max-w-6xl w-full rounded-2xl overflow-hidden mx-4 sm:mx-6 p-4 sm:p-6 ${className}`}>
       {children}
     </div>
   );
@@ -114,9 +113,9 @@ function Intro() {
   );
 }
 
-function Video() {
+function Video({ showEasterEgg }: { showEasterEgg: boolean }) {
   return (
-    <CardContainer>
+    <CardContainer showEasterEgg={showEasterEgg}>
       <div className="relative w-full aspect-video">
         <iframe
           className="absolute inset-0 w-full h-full"
@@ -131,7 +130,7 @@ function Video() {
   );
 }
 
-function FAQ() {
+function FAQ({ setShowEasterEgg, showEasterEgg }: { setShowEasterEgg: (show: React.SetStateAction<boolean>) => void; showEasterEgg: boolean }) {
   const questions = [
     {
       question: "What is a hackathon?",
@@ -171,13 +170,17 @@ function FAQ() {
     },
     {
       question: "What is the best part of hacking?",
-      answer: <>The friends we make along the way! Oh and also, <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank' rel='noopener noreferrer' className='text-blue-800 underline'>summoning Rick Astley</a>.</>,
+      answer: <>The friends we make along the way! Oh and also, <a href='#' className='text-blue-800 underline' onClick={(e) => handleClickEasterEgg(e)}>doing this</a>.</>,
     },
   ];
 
+  const handleClickEasterEgg = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setShowEasterEgg((prev: boolean) => !prev);
+  };
+
   // State to track the index of the currently open question. 'null' means all are closed.
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   // This function is called when a user clicks on a question header.
   const handleToggle = (index: number) => {
     // If the clicked question is already open, close it by setting state to null.
@@ -186,7 +189,7 @@ function FAQ() {
   };
 
   return (
-    <CardContainer>
+    <CardContainer showEasterEgg={showEasterEgg}>
       <div className="text-center text-3xl py-6 text-gray-900">FAQ</div>
 
       {questions.map((q, i) => (
@@ -251,8 +254,10 @@ function Footer() {
   );
 }
 
+
 export default function Page() {
   const [scrollY, setScrollY] = useState(0);
+  const [showEasterEgg, setShowEasterEgg] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -262,21 +267,52 @@ export default function Page() {
 
   return (
     <div
-      className={`${pressStart2P.className} bg-[#3DB0E7] w-full h-full flex flex-col relative`}
+      className={`${pressStart2P.className} ${showEasterEgg ? "bg-black" : "bg-[#3DB0E7]"} w-full h-full flex flex-col relative`}
     >
       {/* Parallax Background */}
       <div 
-        className="fixed inset-0 w-full h-full bg-[url('https://raw.githubusercontent.com/da-hacks/da-hacks-4.0-website/refs/heads/main/public/pixelthingy.png')] bg-center bg-cover"
-        style={{
+        className="fixed inset-0 w-full h-full overflow-hidden"
+        style={!showEasterEgg ? {
           transform: `translateY(${scrollY * 0.3}px)`,
           willChange: 'transform'
-        }}
-      />
+        } : {}}
+      >
+        {showEasterEgg ? (
+          <>
+          {/* audio only */}
+          <iframe
+            className="hidden"
+            src="https://www.youtube.com/embed/9NcPvmk4vfo?autoplay=1"
+            title="Rickroll"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+          <Image
+            src="/8bitrick.gif"
+            alt="Rickroll"
+            fill
+            className="object-cover opacity-0 animate-fade-in"
+            priority
+            unoptimized
+          />
+          {/* need to add unoptimized because it's a gif */}
+          </>
+        ) : (
+          <Image
+            src="https://raw.githubusercontent.com/da-hacks/da-hacks-4.0-website/refs/heads/main/public/pixelthingy.png"
+            alt="Parallax background"
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
+      </div>
       
       <div className="z-10 flex flex-col items-center gap-y-10">
         <Intro />
-        <Video />
-        <FAQ />
+        <Video showEasterEgg={showEasterEgg} />
+        <FAQ setShowEasterEgg={setShowEasterEgg} showEasterEgg={showEasterEgg} />
         <Footer />
       </div> 
     </div>
