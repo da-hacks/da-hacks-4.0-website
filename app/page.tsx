@@ -7,7 +7,7 @@ import Image from "next/image";
 import Script from "next/script";
 
 import { useState, useEffect } from "react";
-
+import Countdown from "@/components/countdown"
 const superMario = localFont({ src: "../public/supermario.ttf" });
 const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 const geist = Geist({ weight: "400", subsets: ["latin"] });
@@ -80,6 +80,7 @@ function Intro() {
             <span className="text-[#988AFF]">.</span>
             <span className="text-[#D05CB6]">0</span>
           </h1>
+                    <Countdown targetDate={hackathonEndTime} className="w-full"/>
 
           <div className="py-2 sm:py-4 text-base sm:text-2xl text-gray-800 text-shadow">
             Nov 21&ndash;22, 2025
