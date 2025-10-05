@@ -6,26 +6,11 @@ import localFont from "next/font/local";
 import Image from "next/image";
 
 import { useEffect, useState } from "react";
+import CardContainer from "./components/card-container";
 import Supporters from "./components/supporters";
 const superMario = localFont({ src: "../public/supermario.ttf" });
 const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 const geist = Geist({ weight: "400", subsets: ["latin"] });
-
-function CardContainer({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`flex flex-col justify-between bg-sky-300 max-w-6xl w-full rounded-2xl overflow-hidden mx-4 sm:mx-6 p-4 sm:p-6 ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
 
 function ApplyButton() {
   return (
