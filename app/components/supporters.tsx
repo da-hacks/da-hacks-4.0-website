@@ -13,7 +13,7 @@ const Supporters = () => {
   return (
     <CardContainer>
       <div className="text-center mb-10">
-        <h2 className="text-lg tracking-widest uppercase text-gray-900 mb-4">
+        <h2 className="text-xl tracking-widest uppercase text-gray-900 mb-4">
           OUR SUPPORTERS
         </h2>
         <p className="text-sm text-gray-700 max-w-2xl mx-auto font-mono">
