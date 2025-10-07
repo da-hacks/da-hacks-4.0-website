@@ -15,6 +15,8 @@ const geist = Geist({ weight: "400", subsets: ["latin"] });
 import Countdown from "./components/countdown";
 import { hackathonEndTime, hackathonStartTime } from "./data/date";
 
+export const dynamic = "force-dynamic";
+
 function ApplyButton() {
   return (
     <a
