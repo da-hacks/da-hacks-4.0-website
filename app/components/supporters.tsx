@@ -1,6 +1,6 @@
 import { supporters } from "../data/supporters";
 import CardContainer from "./card-container";
-
+import Image from "next/image";
 const PlaceholderLogo = ({ name }: { name: string }) => (
   <div className="flex items-center justify-center h-16 sm:h-20 w-full max-w-[160px] rounded-md bg-sky-400 ring-1 ring-black/10">
     <span className="text-sm text-center font-mono tracking-wide text-gray-700">
@@ -28,10 +28,12 @@ const Supporters = () => {
             className="flex items-center justify-center h-16 sm:h-20 w-full max-w-[160px] rounded-md bg-sky-400 ring-1 ring-black/10"
           >
             {supporter.logo ? (
-              <img
+              <Image
                 src={supporter.logo}
                 alt={supporter.name}
                 className="h-10 sm:h-12 md:h-14 w-auto object-contain p-2"
+                width={160}
+                height={160}
               />
             ) : (
               <PlaceholderLogo name={supporter.name} />
