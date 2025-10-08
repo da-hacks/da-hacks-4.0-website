@@ -5,19 +5,17 @@ import { Geist, Press_Start_2P } from "next/font/google";
 import localFont from "next/font/local";
 import Image from "next/image";
 
-import { useState, useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import CardContainer from "./components/card-container";
+import Supporters from "./components/supporters";
 const superMario = localFont({ src: "../public/supermario.ttf" });
 const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 const geist = Geist({ weight: "400", subsets: ["latin"] });
 
-function CardContainer({ children, className, showEasterEgg }: { children: React.ReactNode; className?: string; showEasterEgg?: boolean }) {
-  return (
-    <div className={`flex flex-col justify-between ${showEasterEgg ? "animate-disco" : "bg-sky-300"} max-w-6xl w-full rounded-2xl overflow-hidden mx-4 sm:mx-6 p-4 sm:p-6 ${className}`}>
-      {children}
-    </div>
-  );
-}
+import Countdown from "./components/countdown";
+import { hackathonEndTime, hackathonStartTime } from "./data/date";
+
+export const dynamic = "force-dynamic";
 
 function ApplyButton() {
   return (
@@ -45,18 +43,18 @@ function DiscordButton() {
   );
 }
 
-function HackersGuideButton() {
-  return (
-    <a
-      href="/hackers-guide"
-      className="inline-block px-4 py-2 text-xs sm:text-sm border-2 border-[#10B981] text-white bg-[#10B981] outline-none hover:bg-white hover:text-[#10B981] transition-colors"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Hackers&rsquo; Guide
-    </a>
-  );
-}
+// function HackersGuideButton() {
+//   return (
+//     <a
+//       href="/hackers-guide"
+//       className="inline-block px-4 py-2 text-xs sm:text-sm border-2 border-[#10B981] text-white bg-[#10B981] outline-none hover:bg-white hover:text-[#10B981] transition-colors"
+//       target="_blank"
+//       rel="noopener noreferrer"
+//     >
+//       Hackers&rsquo; Guide
+//     </a>
+//   );
+// }
 
 function Intro() {
   return (
@@ -73,12 +71,12 @@ function Intro() {
             <span className="text-[#F08CC1]">a</span>
             <span className="text-[#E153E7]">c</span>
             <span className="text-[#4272F0]">k</span>
-            <span className="text-[#F08CC1]">s</span>
-            {" "}
+            <span className="text-[#F08CC1]">s</span>{" "}
             <span className="text-[#4272F0]">4</span>
             <span className="text-[#988AFF]">.</span>
             <span className="text-[#D05CB6]">0</span>
           </h1>
+          <Countdown targetDate={hackathonEndTime} startDate={hackathonStartTime} className="w-full"/>
 
           <div className="py-2 sm:py-4 text-base sm:text-2xl text-gray-800 text-shadow">
             Nov 21&ndash;22, 2025
@@ -134,20 +132,30 @@ function FAQ({ setShowEasterEgg, showEasterEgg }: { setShowEasterEgg: (show: Rea
   const questions = [
     {
       question: "What is a hackathon?",
-      answer:
+      answer: (
         <>
-          <p className="mb-3">A hackathon is an event where people come together over a short period of time, to collaborate intensively on software or hardware projects.</p>
-          <p>Participants form teams, brainstorm ideas, and build prototypes or solutions from scratch. No prior experience is required. Just bring your enthusiasm and willingness to learn!</p>
-        </>,
+          <p className="mb-3">
+            A hackathon is an event where people come together over a short
+            period of time, to collaborate intensively on software or hardware
+            projects.
+          </p>
+          <p>
+            Participants form teams, brainstorm ideas, and build prototypes or
+            solutions from scratch. No prior experience is required. Just bring
+            your enthusiasm and willingness to learn!
+          </p>
+        </>
+      ),
     },
     {
       question: "When and where?",
-      answer:
+      answer: (
         <>
           <p>Nov 21 - 22, 8 AM - 8:30 PM (both days)</p>
           <p className="mb-3">Campus Center - Conference Room A & B</p>
           <p>A schedule will be posted before the event.</p>
-        </>,
+        </>
+      ),
     },
     /*
     TODO: Add this back in when we deploy the guide
@@ -158,15 +166,46 @@ function FAQ({ setShowEasterEgg, showEasterEgg }: { setShowEasterEgg: (show: Rea
     */
     {
       question: "How do I join?",
-      answer: <>Fill out the <a href="https://luma.com/4ugdc5mt" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">registration form</a>!</>,
+      answer: (
+        <>
+          Fill out the{" "}
+          <a
+            href="https://luma.com/4ugdc5mt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline"
+          >
+            registration form
+          </a>
+          !
+        </>
+      ),
     },
     {
       question: "Are there going to be prizes?",
-      answer: <>Yes! Top 3 will get prizes, and free merch will be given out to attendees.</>,
+      answer: (
+        <>
+          Yes! Top 3 will get prizes, and free merch will be given out to
+          attendees.
+        </>
+      ),
     },
     {
       question: "What if I don't have a team?",
-      answer: <>You can find a team in our <a href="https://discord.gg/46fcBdqTB8" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">Discord</a>, or apply individually.</>,
+      answer: (
+        <>
+          You can find a team in our{" "}
+          <a
+            href="https://discord.gg/46fcBdqTB8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline"
+          >
+            Discord
+          </a>
+          , or apply individually.
+        </>
+      ),
     },
     {
       question: "What is the best part of hacking?",
@@ -212,9 +251,9 @@ function FAQ({ setShowEasterEgg, showEasterEgg }: { setShowEasterEgg: (show: Rea
 
           {/* This div contains the answer. It expands and collapses smoothly. */}
           <div
-            className={`overflow-hidden transition-all ease-in-out ${geist.className} ${
-              openIndex === i ? "max-h-screen" : "max-h-0"
-            }`}
+            className={`overflow-hidden transition-all ease-in-out ${
+              geist.className
+            } ${openIndex === i ? "max-h-screen" : "max-h-0"}`}
           >
             <div className="p-5 pt-0 text-gray-700 md:text-lg">{q.answer}</div>
           </div>
@@ -233,23 +272,22 @@ function Footer() {
         <span className="text-[#F08CC1]">I</span>
         <span className="text-[#E153E7]">t</span>
         <span className="text-[#4272F0]">&rsquo;</span>
-        <span className="text-[#F08CC1]">s</span>
-        {" "}
+        <span className="text-[#F08CC1]">s</span>{" "}
         <span className="text-[#E153E7]">t</span>
         <span className="text-[#4272F0]">i</span>
         <span className="text-[#F08CC1]">m</span>
-        <span className="text-[#E153E7]">e</span>
-        {" "}
+        <span className="text-[#E153E7]">e</span>{" "}
         <span className="text-[#4272F0]">t</span>
-        <span className="text-[#F08CC1]">o</span>
-        {" "}
+        <span className="text-[#F08CC1]">o</span>{" "}
         <span className="text-[#E153E7]">h</span>
         <span className="text-[#4272F0]">a</span>
         <span className="text-[#F08CC1]">c</span>
         <span className="text-[#E153E7]">k</span>
         <span className="text-[#4272F0]">.</span>
       </h1>
-      <div className="text-center"><ApplyButton /></div>
+      <div className="text-center">
+        <ApplyButton />
+      </div>
     </div>
   );
 }
@@ -261,8 +299,8 @@ export default function Page() {
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -312,9 +350,10 @@ export default function Page() {
       <div className="z-10 flex flex-col items-center gap-y-10">
         <Intro />
         <Video showEasterEgg={showEasterEgg} />
+        <Supporters />
         <FAQ setShowEasterEgg={setShowEasterEgg} showEasterEgg={showEasterEgg} />
         <Footer />
-      </div> 
+      </div>
     </div>
   );
 }
