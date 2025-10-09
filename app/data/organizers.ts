@@ -86,7 +86,7 @@ export const organizers: Organizer[] = [
     linkedin: "https://www.linkedin.com/in/benjamin-lee-52608632b/",
   },
   {
-    name: "Michael Garia",
+    name: "Michael Garcia",
     role: "tech",
     team: "tech",
     linkedin: "https://www.linkedin.com/in/michael-g-5457ba2b7/",
