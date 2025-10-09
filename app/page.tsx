@@ -13,6 +13,7 @@ const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 const geist = Geist({ weight: "400", subsets: ["latin"] });
 
 import Countdown from "./components/countdown";
+import Organizers from "./components/organizers";
 import { hackathonEndTime, hackathonStartTime } from "./data/date";
 
 export const dynamic = "force-dynamic";
@@ -76,7 +77,11 @@ function Intro() {
             <span className="text-[#988AFF]">.</span>
             <span className="text-[#D05CB6]">0</span>
           </h1>
-          <Countdown targetDate={hackathonEndTime} startDate={hackathonStartTime} className="w-full"/>
+          <Countdown
+            targetDate={hackathonEndTime}
+            startDate={hackathonStartTime}
+            className="w-full"
+          />
 
           <div className="py-2 sm:py-4 text-base sm:text-2xl text-gray-800 text-shadow">
             Nov 21&ndash;22, 2025
@@ -128,7 +133,13 @@ function Video({ showEasterEgg }: { showEasterEgg: boolean }) {
   );
 }
 
-function FAQ({ setShowEasterEgg, showEasterEgg }: { setShowEasterEgg: (show: React.SetStateAction<boolean>) => void; showEasterEgg: boolean }) {
+function FAQ({
+  setShowEasterEgg,
+  showEasterEgg,
+}: {
+  setShowEasterEgg: (show: React.SetStateAction<boolean>) => void;
+  showEasterEgg: boolean;
+}) {
   const questions = [
     {
       question: "What is a hackathon?",
@@ -209,7 +220,19 @@ function FAQ({ setShowEasterEgg, showEasterEgg }: { setShowEasterEgg: (show: Rea
     },
     {
       question: "What is the best part of hacking?",
-      answer: <>The friends we make along the way! Oh and also, <a href='#' className='text-blue-800 underline' onClick={(e) => handleClickEasterEgg(e)}>doing this</a>.</>,
+      answer: (
+        <>
+          The friends we make along the way! Oh and also,{" "}
+          <a
+            href="#"
+            className="text-blue-800 underline"
+            onClick={(e) => handleClickEasterEgg(e)}
+          >
+            doing this
+          </a>
+          .
+        </>
+      ),
     },
   ];
 
@@ -292,7 +315,6 @@ function Footer() {
   );
 }
 
-
 export default function Page() {
   const [scrollY, setScrollY] = useState(0);
   const [showEasterEgg, setShowEasterEgg] = useState(false);
@@ -308,33 +330,37 @@ export default function Page() {
       className={`${pressStart2P.className} ${showEasterEgg ? "bg-black" : "bg-[#3DB0E7]"} w-full h-full flex flex-col relative`}
     >
       {/* Parallax Background */}
-      <div 
+      <div
         className="fixed inset-0 w-full h-full overflow-hidden"
-        style={!showEasterEgg ? {
-          transform: `translateY(${scrollY * 0.3}px)`,
-          willChange: 'transform'
-        } : {}}
+        style={
+          !showEasterEgg
+            ? {
+                transform: `translateY(${scrollY * 0.3}px)`,
+                willChange: "transform",
+              }
+            : {}
+        }
       >
         {showEasterEgg ? (
           <>
-          {/* audio only */}
-          <iframe
-            className="hidden"
-            src="https://www.youtube.com/embed/9NcPvmk4vfo?autoplay=1"
-            title="Rickroll"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
-          <Image
-            src="/8bitrick.gif"
-            alt="Rickroll"
-            fill
-            className="object-cover opacity-0 animate-fade-in"
-            priority
-            unoptimized
-          />
-          {/* need to add unoptimized because it's a gif */}
+            {/* audio only */}
+            <iframe
+              className="hidden"
+              src="https://www.youtube.com/embed/9NcPvmk4vfo?autoplay=1"
+              title="Rickroll"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+            <Image
+              src="/8bitrick.gif"
+              alt="Rickroll"
+              fill
+              className="object-cover opacity-0 animate-fade-in"
+              priority
+              unoptimized
+            />
+            {/* need to add unoptimized because it's a gif */}
           </>
         ) : (
           <Image
@@ -346,12 +372,16 @@ export default function Page() {
           />
         )}
       </div>
-      
+
       <div className="z-10 flex flex-col items-center gap-y-10">
         <Intro />
         <Video showEasterEgg={showEasterEgg} />
         <Supporters />
-        <FAQ setShowEasterEgg={setShowEasterEgg} showEasterEgg={showEasterEgg} />
+        <FAQ
+          setShowEasterEgg={setShowEasterEgg}
+          showEasterEgg={showEasterEgg}
+        />
+        <Organizers />
         <Footer />
       </div>
     </div>

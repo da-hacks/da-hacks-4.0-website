@@ -27,14 +27,20 @@ body {
 
 .outlined-text {
   -webkit-text-stroke: 5px #000;
-  text-shadow: 0px 2px 0px #000, 0px 8px 0px #000, 0px 10px 0px #000,
+  text-shadow:
+    0px 2px 0px #000,
+    0px 8px 0px #000,
+    0px 10px 0px #000,
     0px 12px 0px #000;
 }
 
 @media (max-width: 640px) {
   .outlined-text {
     -webkit-text-stroke: 2px #000;
-    text-shadow: 0px 1px 0px #000, 0px 3px 0px #000, 0px 4px 0px #000,
+    text-shadow:
+      0px 1px 0px #000,
+      0px 3px 0px #000,
+      0px 4px 0px #000,
       0px 5px 0px #000;
   }
 }
@@ -53,16 +59,45 @@ body {
 }
 
 @keyframes disco {
-  0% { background-color: #ffb3b3; }
-  14% { background-color: #ffd699; }
-  28% { background-color: #ffffb3; }
-  42% { background-color: #b3ffb3; }
-  57% { background-color: #b3d1ff; }
-  71% { background-color: #d1b3ff; }
-  85% { background-color: #f3b3ff; }
-  100% { background-color: #ffb3b3; }
+  0% {
+    background-color: #ffb3b3;
+  }
+  14% {
+    background-color: #ffd699;
+  }
+  28% {
+    background-color: #ffffb3;
+  }
+  42% {
+    background-color: #b3ffb3;
+  }
+  57% {
+    background-color: #b3d1ff;
+  }
+  71% {
+    background-color: #d1b3ff;
+  }
+  85% {
+    background-color: #f3b3ff;
+  }
+  100% {
+    background-color: #ffb3b3;
+  }
 }
 
 .animate-disco {
   animation: disco 3s linear infinite;
+}
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
 }
