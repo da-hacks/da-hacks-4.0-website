@@ -77,7 +77,7 @@ export const organizers: Organizer[] = [
     linkedin: "https://www.linkedin.com/in/leyann/",
   },
   { name: "Dominique Luzon", role: "marketing", team: "marketing" },
-  { name: "Lauren", role: "marketing", team: "marketing" },
+  { name: "Lauren Le", role: "marketing", team: "marketing" },
 
   {
     name: "Benjamin Lee",
