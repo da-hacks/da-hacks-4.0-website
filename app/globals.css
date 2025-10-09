@@ -38,3 +38,31 @@ body {
       0px 5px 0px #000;
   }
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 3s ease-in-out forwards;
+}
+
+@keyframes disco {
+  0% { background-color: #ffb3b3; }
+  14% { background-color: #ffd699; }
+  28% { background-color: #ffffb3; }
+  42% { background-color: #b3ffb3; }
+  57% { background-color: #b3d1ff; }
+  71% { background-color: #d1b3ff; }
+  85% { background-color: #f3b3ff; }
+  100% { background-color: #ffb3b3; }
+}
+
+.animate-disco {
+  animation: disco 3s linear infinite;
+}

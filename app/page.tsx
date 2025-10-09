@@ -111,9 +111,9 @@ function Intro() {
   );
 }
 
-function Video() {
+function Video({ showEasterEgg }: { showEasterEgg: boolean }) {
   return (
-    <CardContainer>
+    <CardContainer showEasterEgg={showEasterEgg}>
       <div className="relative w-full aspect-video">
         <iframe
           className="absolute inset-0 w-full h-full"
@@ -128,7 +128,7 @@ function Video() {
   );
 }
 
-function FAQ() {
+function FAQ({ setShowEasterEgg, showEasterEgg }: { setShowEasterEgg: (show: React.SetStateAction<boolean>) => void; showEasterEgg: boolean }) {
   const questions = [
     {
       question: "What is a hackathon?",
@@ -207,11 +207,19 @@ function FAQ() {
         </>
       ),
     },
+    {
+      question: "What is the best part of hacking?",
+      answer: <>The friends we make along the way! Oh and also, <a href='#' className='text-blue-800 underline' onClick={(e) => handleClickEasterEgg(e)}>doing this</a>.</>,
+    },
   ];
+
+  const handleClickEasterEgg = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setShowEasterEgg((prev: boolean) => !prev);
+  };
 
   // State to track the index of the currently open question. 'null' means all are closed.
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   // This function is called when a user clicks on a question header.
   const handleToggle = (index: number) => {
     // If the clicked question is already open, close it by setting state to null.
@@ -220,7 +228,7 @@ function FAQ() {
   };
 
   return (
-    <CardContainer>
+    <CardContainer showEasterEgg={showEasterEgg}>
       <div className="text-center text-3xl py-6 text-gray-900">FAQ</div>
 
       {questions.map((q, i) => (
@@ -284,8 +292,10 @@ function Footer() {
   );
 }
 
+
 export default function Page() {
   const [scrollY, setScrollY] = useState(0);
+  const [showEasterEgg, setShowEasterEgg] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -295,22 +305,53 @@ export default function Page() {
 
   return (
     <div
-      className={`${pressStart2P.className} bg-[#3DB0E7] w-full h-full flex flex-col relative`}
+      className={`${pressStart2P.className} ${showEasterEgg ? "bg-black" : "bg-[#3DB0E7]"} w-full h-full flex flex-col relative`}
     >
       {/* Parallax Background */}
-      <div
-        className="fixed inset-0 w-full h-full bg-[url('https://raw.githubusercontent.com/da-hacks/da-hacks-4.0-website/refs/heads/main/public/pixelthingy.png')] bg-center bg-cover"
-        style={{
+      <div 
+        className="fixed inset-0 w-full h-full overflow-hidden"
+        style={!showEasterEgg ? {
           transform: `translateY(${scrollY * 0.3}px)`,
-          willChange: "transform",
-        }}
-      />
-
+          willChange: 'transform'
+        } : {}}
+      >
+        {showEasterEgg ? (
+          <>
+          {/* audio only */}
+          <iframe
+            className="hidden"
+            src="https://www.youtube.com/embed/9NcPvmk4vfo?autoplay=1"
+            title="Rickroll"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+          <Image
+            src="/8bitrick.gif"
+            alt="Rickroll"
+            fill
+            className="object-cover opacity-0 animate-fade-in"
+            priority
+            unoptimized
+          />
+          {/* need to add unoptimized because it's a gif */}
+          </>
+        ) : (
+          <Image
+            src="https://raw.githubusercontent.com/da-hacks/da-hacks-4.0-website/refs/heads/main/public/pixelthingy.png"
+            alt="Parallax background"
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
+      </div>
+      
       <div className="z-10 flex flex-col items-center gap-y-10">
         <Intro />
-        <Video />
+        <Video showEasterEgg={showEasterEgg} />
         <Supporters />
-        <FAQ />
+        <FAQ setShowEasterEgg={setShowEasterEgg} showEasterEgg={showEasterEgg} />
         <Footer />
       </div>
     </div>
