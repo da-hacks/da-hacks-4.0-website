@@ -140,6 +140,11 @@ function FAQ({
   setShowEasterEgg: (show: React.SetStateAction<boolean>) => void;
   showEasterEgg: boolean;
 }) {
+  const handleClickEasterEgg = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setShowEasterEgg((prev: boolean) => !prev);
+  };
+
   const questions = [
     {
       question: "What is a hackathon?",
@@ -235,11 +240,6 @@ function FAQ({
       ),
     },
   ];
-
-  const handleClickEasterEgg = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    setShowEasterEgg((prev: boolean) => !prev);
-  };
 
   // State to track the index of the currently open question. 'null' means all are closed.
   const [openIndex, setOpenIndex] = useState<number | null>(null);
