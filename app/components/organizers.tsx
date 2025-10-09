@@ -22,6 +22,7 @@ type OrganizerCardProps = {
 const OrganizerCard = ({ name, role, image, linkedin }: OrganizerCardProps) => (
   <Link
     href={linkedin ?? "#"}
+    target="_blank"
     className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3"
   >
     <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-300 flex-shrink-0">
