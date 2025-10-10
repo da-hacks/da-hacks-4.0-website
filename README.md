@@ -1,5 +1,7 @@
 # DAHacks 4.0 Website
 
+Last update: Oct 8
+
 ## How do I run this?
 This uses [pnpm](https://pnpm.io/) as the package manager (because npm is super cringe /j).
 
