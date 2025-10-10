@@ -78,57 +78,57 @@ export default function Countdown({ targetDate, startDate, className = "" }: Cou
 
   if (loading) {
     return (
-      <div className={`${className} rounded-2xl sm:rounded-3xl md:rounded-[69px] bg-[#6366f1]/80 p-3 sm:p-4 md:p-8 text-center animate-pulse overflow-hidden`}>
-        <div className="flex justify-center items-center space-x-1 sm:space-x-2 md:space-x-8">
+      <div className={`${className} font-sans rounded-2xl sm:rounded-3xl md:rounded-[69px] bg-[#6366f1]/80 p-3 sm:p-4 md:p-8 text-center animate-pulse overflow-hidden`}>
+        <div className="flex justify-center items-center space-x-0.5 sm:space-x-1 md:space-x-5">
           <div className="text-center min-w-0">
-            <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">00</div>
-            <div className="text-xs sm:text-sm md:text-2xl">days</div>
+            <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">00</div>
+            <div className="text-[0.6rem] sm:text-xs md:text-lg">days</div>
           </div>
-          <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">:</div>
+          <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">:</div>
           <div className="text-center min-w-0">
-            <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">00</div>
-            <div className="text-xs sm:text-sm md:text-2xl">hrs</div>
+            <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">00</div>
+            <div className="text-[0.6rem] sm:text-xs md:text-lg">hrs</div>
           </div>
-          <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">:</div>
+          <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">:</div>
           <div className="text-center min-w-0">
-            <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">00</div>
-            <div className="text-xs sm:text-sm md:text-2xl">min</div>
+            <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">00</div>
+            <div className="text-[0.6rem] sm:text-xs md:text-lg">min</div>
           </div>
-          <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">:</div>
+          <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">:</div>
           <div className="text-center min-w-0">
-            <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">00</div>
-            <div className="text-xs sm:text-sm md:text-2xl">sec</div>
+            <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">00</div>
+            <div className="text-[0.6rem] sm:text-xs md:text-lg">sec</div>
           </div>
         </div>
-        <div className="mt-3 sm:mt-4 md:mt-6 text-xs sm:text-sm md:text-xl lg:text-3xl">hacking starting in</div>
+        <div className="mt-2 sm:mt-3 md:mt-4 text-[0.6rem] sm:text-xs md:text-lg lg:text-2xl">hacking starting in</div>
       </div>
     );
   }
 
   return (
-    <div className={`${className} rounded-2xl sm:rounded-3xl md:rounded-[69px] bg-[#6366f1]/80 p-3 sm:p-4 md:p-8 text-center overflow-hidden`}>
-      <div className="flex justify-center items-center space-x-1 sm:space-x-2 md:space-x-8">
+    <div className={`${className} font-light rounded-2xl sm:rounded-3xl md:rounded-[69px] bg-[#6366f1]/80 p-3 sm:p-4 md:p-8 text-center overflow-hidden`}>
+      <div className="flex justify-center items-center space-x-0.5 sm:space-x-1 md:space-x-5">
         <div className="text-center min-w-0">
-          <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">{formatNumber(days)}</div>
-          <div className="text-xs sm:text-sm md:text-2xl">days</div>
+          <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">{formatNumber(days)}</div>
+          <div className="text-[0.6rem] sm:text-xs md:text-lg">days</div>
         </div>
-        <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">:</div>
+        <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">:</div>
         <div className="text-center min-w-0">
-          <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">{formatNumber(hours)}</div>
-          <div className="text-xs sm:text-sm md:text-2xl">hrs</div>
+          <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">{formatNumber(hours)}</div>
+          <div className="text-[0.6rem] sm:text-xs md:text-lg">hrs</div>
         </div>
-        <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">:</div>
+        <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">:</div>
         <div className="text-center min-w-0">
-          <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">{formatNumber(minutes)}</div>
-          <div className="text-xs sm:text-sm md:text-2xl">min</div>
+          <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">{formatNumber(minutes)}</div>
+          <div className="text-[0.6rem] sm:text-xs md:text-lg">min</div>
         </div>
-        <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">:</div>
+        <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">:</div>
         <div className="text-center min-w-0">
-          <div className="text-2xl sm:text-3xl md:text-8xl lg:text-9xl font-bold font-orbitron">{formatNumber(seconds)}</div>
-          <div className="text-xs sm:text-sm md:text-2xl">sec</div>
+          <div className="text-xl sm:text-2xl md:text-6xl lg:text-7xl">{formatNumber(seconds)}</div>
+          <div className="text-[0.6rem] sm:text-xs md:text-lg">sec</div>
         </div>
       </div>
-      <div className="mt-3 sm:mt-4 md:mt-6 text-xs sm:text-sm md:text-xl lg:text-3xl">{getStatusMessage(status, days, hours)}</div>
+      <div className="mt-2 sm:mt-3 md:mt-4 text-[0.6rem] sm:text-xs md:text-lg lg:text-2xl">{getStatusMessage(status, days, hours)}</div>
     </div>
   );
 }
