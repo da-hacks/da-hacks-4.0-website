@@ -3,7 +3,6 @@ export const supporters = [
     name: "ElevenLabs",
     logo: "https://11labs-nonprd-15f22c1d.s3.eu-west-3.amazonaws.com/0b9cd3e1-9fad-4a5b-b3a0-c96b0a1f1d2b/elevenlabs-logo-black.svg",
   },
-
   {
     name: "Balsamiq",
     logo: "https://balsamiq.com/assets/logo-white.svg",
