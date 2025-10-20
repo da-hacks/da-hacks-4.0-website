@@ -19,10 +19,12 @@ export const supporters = [
     name: "DASG",
     logo: "https://www.deanza.edu/dasg/images/dasg-logo/dasg-logo-abreviation.png",
   },
+  /*
   {
     name: "kluster.ai",
     logo: "https://www.kluster.ai/brand/logos/logo-primary-white.svg",
   },
+  */
   {
     name: "StickerGiant",
     logo: "https://www.stickergiant.com/media/athlete2/default/StickerGiant_Logo.png",
