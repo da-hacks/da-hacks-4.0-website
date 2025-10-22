@@ -24,6 +24,7 @@ export const supporters = [
     name: "kluster.ai",
     logo: "https://www.kluster.ai/brand/logos/logo-primary-white.svg",
   },
+  
   */
   {
     name: "StickerGiant",
