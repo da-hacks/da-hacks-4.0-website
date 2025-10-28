@@ -26,7 +26,20 @@ function ApplyButton() {
       target="_blank"
       rel="noopener noreferrer"
     >
-      Apply Here
+      Apply as Hacker
+    </a>
+  );
+}
+
+function MentorApplyButton() {
+  return (
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSevOX7VQvEFsGbDV9aRQSkKj4S7bk_Yqj3HdAc84PTgqO_nbA/viewform"
+      className="inline-block px-6 py-3 text-sm sm:text-base border-2 border-white text-white outline-none backdrop-blur-xl hover:bg-white hover:text-black transition-colors shadow-lg"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Apply as Mentor
     </a>
   );
 }
@@ -92,7 +105,11 @@ function Intro() {
           </div>
 
           <div className="pt-8 flex flex-col items-center justify-center gap-4">
-            <ApplyButton />
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <ApplyButton />
+              <MentorApplyButton />
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
               <DiscordButton />
               {/* <HackersGuideButton /> TODO: Add this back in until we deploy the guide */}
