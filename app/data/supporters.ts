@@ -33,6 +33,6 @@ export const supporters = [
   },
   {
     name: "Give My Certificate",
-    logo: "https://givemycertificate.com/assets/svg/logos/logo1.png",
+    logo: "https://i.postimg.cc/nzm4SNhq/th-857044941-removebg-preview.png",
   },
 ];
