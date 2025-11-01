@@ -57,18 +57,18 @@ function DiscordButton() {
   );
 }
 
-// function HackersGuideButton() {
-//   return (
-//     <a
-//       href="/hackers-guide"
-//       className="inline-block px-4 py-2 text-xs sm:text-sm border-2 border-[#10B981] text-white bg-[#10B981] outline-none hover:bg-white hover:text-[#10B981] transition-colors"
-//       target="_blank"
-//       rel="noopener noreferrer"
-//     >
-//       Hackers&rsquo; Guide
-//     </a>
-//   );
-// }
+function HackersGuideButton() {
+  return (
+    <a
+      href="https://da-hacks-40-hackers-guide.vercel.app/"
+      className="inline-block px-4 py-2 text-xs sm:text-sm border-2 border-[#10B981] text-white bg-[#10B981] outline-none hover:bg-white hover:text-[#10B981] transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Hacker&rsquo;s Guide
+    </a>
+  );
+}
 
 function Intro() {
   return (
@@ -112,7 +112,7 @@ function Intro() {
 
             <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
               <DiscordButton />
-              {/* <HackersGuideButton /> TODO: Add this back in until we deploy the guide */}
+              <HackersGuideButton />
             </div>
           </div>
         </div>
