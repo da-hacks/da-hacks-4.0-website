@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Copy, Check, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,15 +9,19 @@ export const dynamic = "force-dynamic";
 export default function EmbedPage() {
   const [copied, setCopied] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
-  const [baseUrl, setBaseUrl] = useState(process.env.NEXT_PUBLIC_URL || "https://localhost:3000");
-  const [timestamp, setTimestamp] = useState(0);
-
-  useEffect(() => {
-    // Set baseUrl after hydration to avoid mismatch
-    setBaseUrl(window.location.origin);
-    // Set timestamp after hydration
-    setTimestamp(Date.now());
-  }, []);
+  const [baseUrl] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.location.origin;
+    }
+    return process.env.NEXT_PUBLIC_URL || "https://localhost:3000";
+  });
+  
+  const [timestamp] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return Date.now();
+    }
+    return 0;
+  });
 
   const embedUrl = `${baseUrl}/api/countdown`;
   
