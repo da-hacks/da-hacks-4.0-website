@@ -31,4 +31,8 @@ export const supporters = [
     name: "Interview Cake",
     logo: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2023.hawkhacks.com%2Finterviewcake-logo.png&f=1&nofb=1&ipt=0d53817dc273fcc51fc1b99cb4cad9625037832864cf665305f31534ab4dbd40",
   },
+  {
+    name: "Give My Certificate",
+    logo: "https://givemycertificate.com/assets/svg/logos/logo1.png",
+  },
 ];
