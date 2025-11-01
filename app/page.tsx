@@ -73,11 +73,11 @@ function HackersGuideButton() {
 function Intro() {
   return (
     <div className="w-full">
-      <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-35 pb-6 sm:pb-10 flex flex-col items-center justify-between">
+      <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-35 pb-6 sm:pb-10 flex flex-col items-center justify-between overflow-hidden">
         {/* Text + button */}
-        <div className="text-center">
+        <div className="text-center w-full">
           <h1
-            className={`${superMario.className} text-4xl sm:text-6xl lg:text-8xl mb-4 sm:mb-6 tracking-tight outlined-text text-shadow-lg`}
+            className={`${superMario.className} text-3xl sm:text-6xl lg:text-8xl mb-4 sm:mb-6 tracking-tight outlined-text text-shadow-lg px-2`}
           >
             <span className="text-[#F08CC1]">D</span>
             <span className="text-[#E153E7]">A</span>
@@ -118,11 +118,11 @@ function Intro() {
         </div>
 
         {/* Grass */}
-        <div>
+        <div className="w-full overflow-hidden">
           <Image
             src="https://raw.githubusercontent.com/da-hacks/da-hacks-4.0-website/refs/heads/main/public/touchgrass.png"
             alt="Grass (you should probably touch it)"
-            className="w-full"
+            className="w-full max-w-full"
             width={6760}
             height={3309}
             priority
@@ -305,9 +305,9 @@ function FAQ({
 
 function CTA() {
   return (
-    <div className="rounded-2xl py-15">
+    <div className="rounded-2xl py-15 px-4">
       <h1
-        className={`${superMario.className} text-center text-4xl sm:text-7xl tracking-tight pb-9 outlined-text text-shadow-lg`}
+        className={`${superMario.className} text-center text-3xl sm:text-5xl md:text-7xl tracking-tight pb-9 outlined-text text-shadow-lg`}
       >
         <span className="text-[#F08CC1]">I</span>
         <span className="text-[#E153E7]">t</span>
@@ -335,41 +335,54 @@ function CTA() {
 export const resourceLinks = [
   {
     title: "Devpost",
-    links: [
-      { name: "DAHACKS V4.0", href: "https://dahacks4.devpost.com" }
-    ]
+    links: [{ name: "DAHACKS V4.0", href: "https://dahacks4.devpost.com" }],
   },
   {
     title: "Previous Websites",
     links: [
       { name: "DAHACKS V2.5", href: "https://da-hacks2-5.vercel.app/" },
-      { name: "DAHACKS V3.0 Interest", href: "https://da-hacks-spring2024.vercel.app/" },
+      {
+        name: "DAHACKS V3.0 Interest",
+        href: "https://da-hacks-spring2024.vercel.app/",
+      },
       { name: "DAHACKS V3.0", href: "https://da-hacks-github-io.vercel.app/" },
-      { name: "DAHACKS V3.5", href: "https://hackathon-horizon-website.vercel.app/" }
-    ]
+      {
+        name: "DAHACKS V3.5",
+        href: "https://hackathon-horizon-website.vercel.app/",
+      },
+    ],
   },
   {
     title: "News & Press",
     links: [
-      { name: "LA Voz - Calculator Design", href: "https://lavozdeanza.com/features/2023/11/03/electricity-calculator-design-shocks-de-anza-hackathon/" },
-      { name: "LA Voz - Spring Hackathon", href: "https://lavozdeanza.com/features/2024/06/07/de-anza-hackathon-returns-for-spring-and-comes-with-a-twist/" },
-      { name: "LA Voz - Student Hackers", href: "https://lavozdeanza.com/video/2024/10/31/student-hackers-compete-at-da-hacks-3-0-hack-a-thon-for-over-7500-in-prizes/" }
-    ]
+      {
+        name: "LA Voz - Calculator Design",
+        href: "https://lavozdeanza.com/features/2023/11/03/electricity-calculator-design-shocks-de-anza-hackathon/",
+      },
+      {
+        name: "LA Voz - Spring Hackathon",
+        href: "https://lavozdeanza.com/features/2024/06/07/de-anza-hackathon-returns-for-spring-and-comes-with-a-twist/",
+      },
+      {
+        name: "LA Voz - Student Hackers",
+        href: "https://lavozdeanza.com/video/2024/10/31/student-hackers-compete-at-da-hacks-3-0-hack-a-thon-for-over-7500-in-prizes/",
+      },
+    ],
   },
 ];
 
 const Footer = () => {
   return (
-    <footer
-      className="py-15 bg-sky-300 w-full"
-    >
+    <footer className="py-15 bg-sky-300 w-full overflow-hidden">
       <div className="px-4 sm:px-6 lg:px-20">
         {/* Resource Links Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {resourceLinks.map((group, index) => {
             return (
               <div key={index} className="mb-6">
-                <h3 className={`text-xl font-cyber font-semibold mb-4 text-gray-800`}>
+                <h3
+                  className={`text-xl font-cyber font-semibold mb-4 text-gray-800`}
+                >
                   {group.title}
                 </h3>
                 <div className="flex flex-col gap-2">
@@ -395,7 +408,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Hackathon Info */}
           <div className="text-center md:text-left">
-            <h3 className={`${superMario.className} text-5xl font-bold mb-4 text-gray-800`}>
+            <h3
+              className={`${superMario.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-800`}
+            >
               <span className="text-[#F08CC1]">D</span>
               <span className="text-[#E153E7]">A</span>
               <span className="text-[#4272F0]">H</span>
@@ -457,7 +472,7 @@ const Footer = () => {
             </h3>
             <a
               href="mailto:logistics@deanzahacks.com"
-              className="text-gray-700 hover:text-gray-900 transition-colors"
+              className="text-gray-700 hover:text-gray-900 transition-colors text-sm sm:text-base break-all"
             >
               logistics@deanzahacks.com
             </a>
@@ -476,8 +491,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 text-center">
           <p className="text-sm text-gray-800">
-            &copy; {new Date().getFullYear()} DAHacks. All rights
-            reserved.{" "}
+            &copy; {new Date().getFullYear()} DAHacks. All rights reserved.{" "}
             <a
               href="https://github.com/da-hacks/legal/blob/main/privacy.md"
               target="_blank"
@@ -514,7 +528,7 @@ export default function Page() {
 
   return (
     <div
-      className={`${pressStart2P.className} ${showEasterEgg ? "bg-black" : "bg-[#3DB0E7]"} w-full h-full flex flex-col relative`}
+      className={`${pressStart2P.className} ${showEasterEgg ? "bg-black" : "bg-[#3DB0E7]"} w-full h-full flex flex-col relative overflow-x-hidden`}
     >
       {/* Parallax Background */}
       <div
@@ -560,7 +574,7 @@ export default function Page() {
         )}
       </div>
 
-      <div className="z-10 flex flex-col items-center gap-y-10">
+      <div className="z-10 flex flex-col items-center gap-y-10 w-full">
         <Intro />
         <Video showEasterEgg={showEasterEgg} />
         <Supporters />
