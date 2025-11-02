@@ -60,7 +60,7 @@ function DiscordButton() {
 function HackersGuideButton() {
   return (
     <a
-      href="https://da-hacks-40-hackers-guide.vercel.app/"
+      href="https://guide.deanzahacks.com"
       className="inline-block px-4 py-2 text-xs sm:text-sm border-2 border-[#10B981] text-white bg-[#10B981] outline-none hover:bg-white hover:text-[#10B981] transition-colors"
       target="_blank"
       rel="noopener noreferrer"
