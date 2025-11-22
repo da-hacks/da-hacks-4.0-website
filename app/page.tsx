@@ -150,6 +150,33 @@ function Video({ showEasterEgg }: { showEasterEgg: boolean }) {
   );
 }
 
+function Schedule({ showEasterEgg }: { showEasterEgg: boolean }) {
+  return (
+    <CardContainer showEasterEgg={showEasterEgg}>
+      <div className="flex flex-col sm:flex-row gap-4 w-full">
+        <div className="relative w-full sm:w-1/2">
+          <Image
+            src="/day1.webp"
+            alt="Day 1 Schedule"
+            className="w-full h-auto rounded-lg"
+            width={800}
+            height={600}
+          />
+        </div>
+        <div className="relative w-full sm:w-1/2">
+          <Image
+            src="/day2.webp"
+            alt="Day 2 Schedule"
+            className="w-full h-auto rounded-lg"
+            width={800}
+            height={600}
+          />
+        </div>
+      </div>
+    </CardContainer>
+  );
+}
+
 function FAQ({
   setShowEasterEgg,
   showEasterEgg,
@@ -577,6 +604,7 @@ export default function Page() {
       <div className="z-10 flex flex-col items-center gap-y-10 w-full">
         <Intro />
         <Video showEasterEgg={showEasterEgg} />
+        <Schedule showEasterEgg={showEasterEgg} />
         <Supporters />
         <FAQ
           setShowEasterEgg={setShowEasterEgg}
