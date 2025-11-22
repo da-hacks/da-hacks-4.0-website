@@ -57,13 +57,13 @@ function formatNumber(num: number) {
 function getStatusMessage(status: CountdownStatus, days: number, hours: number) {
   switch (status) {
     case "before":
-      return `HACKING STARTS IN ${days > 0 ? `${days} DAYS, ` : ""}${hours} HOURS...`;
+      return `HACKING STARTS IN ${days > 0 ? `${days} DAYS, ` : ""}${hours} ${hours === 1 ? "HOUR" : "HOURS"}...`;
     case "during":
-      return `HACKING ENDS IN ${days > 0 ? `${days} DAYS, ` : ""}${hours} HOURS...`;
+      return `HACKING ENDS IN ${days > 0 ? `${days} DAYS, ` : ""}${hours} ${hours === 1 ? "HOUR" : "HOURS"}...`;
     case "after":
       return "HACKATHON HAS ENDED!";
     default:
-      return `HACKING STARTS IN ${days > 0 ? `${days} DAYS, ` : ""}${hours} HOURS...`;
+      return `HACKING STARTS IN ${days > 0 ? `${days} DAYS, ` : ""}${hours} ${hours === 1 ? "HOUR" : "HOURS"}...`;
   }
 }
 
